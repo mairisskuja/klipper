@@ -1,10 +1,10 @@
 # FluiddPI setup guide for dummies
 
-* Work in progress *
+// Work in progress //
 
 1. Start with downloading a pi image with Klipper, Moonraker and Fluidd pre-installed.
 
-Go to the FluidPi repo and download latest version which contains the necessary code to generate the distribution from an existing Raspbian lite distro image.
+* Go to the FluidPi repo and download latest version which contains the necessary code to generate the distribution from an existing Raspbian lite distro image.
 Download latest version of FluidPi: https://github.com/fluidd-core/FluiddPI/releases/latest
 
 * Read first (not mandatory but might be useful): https://github.com/fluidd-core/FluiddPI
