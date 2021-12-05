@@ -25,31 +25,32 @@ Download latest version of FluidPi: https://github.com/fluidd-core/FluiddPI/rele
 
 3. Download Raspberry Pi imager (if you do not have it already)
 
-Download Raspberry Pi imager it here: https://www.raspberrypi.com/software/
+* Download Raspberry Pi imager it here: https://www.raspberrypi.com/software/
 
-* There are multiple other ways how to install custom pi OS versions on pi, i.e. Balena Etcher (balenaEtcher) and other tools. I do like Raspberry Pi imager better (matter ir personal choice) as it allows to pre-configure multiple settings (i.e. WiFi SSID (name) and Password prior to installation start. No need to change config files later - just install, boot and you are ready to go.
+`There are multiple other ways how to install custom pi OS versions on pi, i.e. Balena Etcher (balenaEtcher) and other tools. I do like Raspberry Pi imager better (matter ir personal choice) as it allows to pre-configure multiple settings (i.e. WiFi SSID (name) and Password prior to installation start. No need to change config files later - just install, boot and you are ready to go.`
 
 4. Launch Raspberry Pi imager and start installation.
 
-— As Operation System / Choose OS, select 'Use custom' and select latest version of FluidPi (which you downloaded in Step 1). Do not worry .ZIP file is OK, it will work the same way as .IMG file.
+* As Operation System / Choose OS, select 'Use custom' and select latest version of FluidPi (which you downloaded in Step 1). Do not worry .ZIP file is OK, it will work the same way as .IMG file.
 
-— (!important) Press ‘Ctrl-Shift-X’ (Win) or ‘CMD-Shift-X’ (OS X) and configure advanced settings.
+`Important: Press ‘Ctrl-Shift-X’ (Win) or ‘CMD-Shift-X’ (OS X) and configure advanced settings.`
 
-Write in your WiFi access credentials, specify name — i.e. fluidd.local.
+* Write in your WiFi access credentials, specify name — i.e. fluidd.local in Advanced settings
 
-— Press 'Write' and wait for disk image writing to complete and verify. That can take some time.
+* Press 'Write' and wait for disk image writing to complete and verify. That can take some time.
 
 5. Put SD card in Raspberry Pi and boot up for the first time.
 
-— You should see green diode blinking on startup. Proceed to further steps when it stop blinking.
+`You should see green diode blinking on startup. Proceed to further steps when it stop blinking.`
 
-— Open browser access the name you set in step 4. As most of the modern browsers will force https:// over http:// and you do not have secure connection write in local domain name as http://fluidd.local (or other if you set different).
+* Open browser access the name you set in step 4. As most of the modern browsers will force https:// over http:// and you do not have secure connection write in local domain name as http://fluidd.local (or other if you set different).
 
-If everything is OK, you will see Fluidd UI with error message — 'Unable to open config file /home/pi/klipper_config/printer.cfg' which is as expected.
+`If everything is OK, you will see Fluidd UI with error message — 'Unable to open config file /home/pi/klipper_config/printer.cfg' which is as expected.`
 
 6. Update Fluidd
 
-— Go to Settings / General, find Software Updates panel and update all what allows you to do so.
+* Go to Settings / General, find Software Updates panel and update all what allows you to do so.
 
 7. Connect Raspberry Pi to printer Main Board.
 
+* _To be continued..._
