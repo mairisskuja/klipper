@@ -44,6 +44,8 @@ Download latest version of FluidPi: https://github.com/fluidd-core/FluiddPI/rele
 `You should see green diode blinking on startup. Proceed to further steps when it stop blinking.`
 
 * Open browser access the name you set in step 4. As most of the modern browsers will force https:// over http:// and you do not have secure connection write in local domain name as http://fluidd.local (or other if you set different).
+  * If you can not access using local domain name use local IP address of your pi connected tp WiFi instead. There are multiple ways how to understand which address is set for pi via Dynamic Host Configuration Protocol (DHCP). The easiest way would be to connect tp your WiFi roter and look into device list in your WiFi network.
+  * It's not a bad idea to set Static DHCP lease for pi running Fluidd. This is supported my most modern WiFi routers. Info though how to achieve this hardly depends on a specific router and it's integrated software. 
 
 `If everything is OK, you will see Fluidd UI with error message — 'Unable to open config file /home/pi/klipper_config/printer.cfg' which is as expected.`
 
@@ -51,6 +53,16 @@ Download latest version of FluidPi: https://github.com/fluidd-core/FluiddPI/rele
 
 * Go to Settings / General, find Software Updates panel and update all what allows you to do so.
 
-7. Connect Raspberry Pi to printer Main Board.
+7. Build MCU flash image
 
-* _To be continued..._
+* Connect Raspberry Pi to printer Main Board and boot up.
+
+* Launch any terminal software of your choice and connect to your Rpi using SSH.
+  * For Win, download Putty (https://www.putty.org/)
+  * For Mac launch Terminal.
+
+Connection commands wil be as such:
+
+shh -l pi fluidd.local
+
+
