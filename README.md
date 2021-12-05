@@ -27,7 +27,7 @@ Download latest version of FluidPi: https://github.com/fluidd-core/FluiddPI/rele
 
 * Download Raspberry Pi imager it here: https://www.raspberrypi.com/software/
 
-`There are multiple other ways how to install custom pi OS versions on pi, i.e. Balena Etcher (balenaEtcher) and other tools. I do like Raspberry Pi imager better (matter ir personal choice) as it allows to pre-configure multiple settings (i.e. WiFi SSID (name) and Password prior to installation start. No need to change config files later - just install, boot and you are ready to go.`
+`There are multiple other ways how to install custom pi OS versions on pi, i.e. balenaEtcher (https://www.balena.io/etcher/) and other tools. I recommend to use native Raspberry Pi imager as it allows to pre-configure multiple settings (i.e. WiFi SSID (name) and Password prior to installation start. No need to change config files later - just install, boot and you are ready to go.`
 
 4. Launch Raspberry Pi imager and start installation.
 
