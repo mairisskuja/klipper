@@ -1,13 +1,13 @@
 # FluiddPI setup guide for dummies
 
-// Work in progress //
+`// Work in progress //`
 
 1. Start with downloading a pi image with Klipper, Moonraker and Fluidd pre-installed.
 
 * Go to the FluidPi repo and download latest version which contains the necessary code to generate the distribution from an existing Raspbian lite distro image.
 Download latest version of FluidPi: https://github.com/fluidd-core/FluiddPI/releases/latest
 
-* Read first (not mandatory but might be useful): https://github.com/fluidd-core/FluiddPI
+`Read first (not mandatory but might be useful): https://github.com/fluidd-core/FluiddPI`
 
 2. Prepare Micro SD card
 
@@ -17,11 +17,11 @@ Download latest version of FluidPi: https://github.com/fluidd-core/FluiddPI/rele
 
 * Format SD card to FAT.
 
-** OS X: Launch 'Disk Utility', select mounted SD card, click on 'Erase' button and you are good to go.
+  ** OS X: Launch 'Disk Utility', select mounted SD card, click on 'Erase' button and you are good to go.
 
-** Windows 10: Locate your SD card partition and right-click on it. Choose “Format” from the context menu. Make sure that the “Perform a quick format” option is checked. Choose FAT file system.
+  ** Windows 10: Locate your SD card partition and right-click on it. Choose “Format” from the context menu. Make sure that the “Perform a quick format” option is checked. Choose FAT file system.
 
-** OtherOS: Most likelly, you do not need this part of the guide if you are running any other OS :)
+  ** OtherOS: Most likelly, you do not need this part of the guide if you are running any other OS :)
 
 3. Download Raspberry Pi imager (if you do not have it already)
 
