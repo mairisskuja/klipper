@@ -11,17 +11,17 @@ Download latest version of FluidPi: https://github.com/fluidd-core/FluiddPI/rele
 
 2. Prepare Micro SD card
 
-— Choose Micro SD card with reasonable size as later you will use it not only as "disk" where your Klipper, Moonraker and Fluidd runs but as 'virtual CD card' as well replacing your SD card slot on Control Board. 4Gb will be OK-ish.
+* Choose Micro SD card with reasonable size as later you will use it not only as "disk" where your Klipper, Moonraker and Fluidd runs but as 'virtual CD card' as well replacing your SD card slot on Control Board. 4Gb will be OK-ish.
 
-* I recommend using 8Gb (or more) and choose quality vs price. CD cards have limited time span. Even good ones. Your time on earth is limited as well. It is too short to cheap out on hardware.
+I recommend using 8Gb (or more) and choose quality vs price. CD cards have limited time span. Even good ones. Your time on earth is limited as well. It is too short to cheap out on hardware.
 
-— Format SD card to FAT.
+* Format SD card to FAT.
 
-* OS X: Launch 'Disk Utility', select mounted SD card, click on 'Erase' button and you are good to go.
+** OS X: Launch 'Disk Utility', select mounted SD card, click on 'Erase' button and you are good to go.
 
-* Windows 10: Locate your SD card partition and right-click on it. Choose “Format” from the context menu. Make sure that the “Perform a quick format” option is checked. Choose FAT file system.
+** Windows 10: Locate your SD card partition and right-click on it. Choose “Format” from the context menu. Make sure that the “Perform a quick format” option is checked. Choose FAT file system.
 
-* OtherOS: Most likelly, you do not need this part of the guide if you are running any other OS :)
+** OtherOS: Most likelly, you do not need this part of the guide if you are running any other OS :)
 
 3. Download Raspberry Pi imager (if you do not have it already)
 
