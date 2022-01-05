@@ -1,4 +1,4 @@
-# FluiddPI setup guide for hopeless dummies
+# Klipper + Fluidd setup guide for hopeless dummies
 
 `// Work in progress //`
 
