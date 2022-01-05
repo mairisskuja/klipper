@@ -1,4 +1,4 @@
-# Klipper + Fluidd setup guide for hopeless dummies
+# Klipper + Fluidd setup guide for hopeless dummies (like myself)
 
 `// Work in progress //`
 
