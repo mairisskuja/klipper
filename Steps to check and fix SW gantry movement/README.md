@@ -1,15 +1,15 @@
 # Steps to check / fix Switchwire gantry movement
 
-1. In Klipper printer.cfg add:
+In Klipper printer.cfg add:
 
     [force_move]
     enable_force_move: True
 
 Save and restart.
 
-2. Put the tool head in the middle of the gantry both on X and Z.
+Put the tool head in the middle of the gantry both on X and Z.
 
-3. In Klipper command prompt execute the following:
+In Klipper command prompt execute the following:
 
     SET_KINEMATIC_POSITION X=125 Z=100
     G91
