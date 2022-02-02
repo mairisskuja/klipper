@@ -27,3 +27,5 @@ Note in which way it moved.
 Note in which way it moved.
 
 Compare the result with the graph in SW motor configuration guide and configure or swap motor connections properly: https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/main/build/startup/images/SW-motor-configuration-guide.png
+
+— Optional: Comment or remove [force_move] section in printer.cfg
