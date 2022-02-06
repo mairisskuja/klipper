@@ -82,19 +82,12 @@ fade_target: 0
 #[servo SideSwipe]
 #pin: PA1 #Probe Connection on SKR mini E3 V2
 #initial_angle: 0
-#maximum_servo_angle = 180
+#maximum_servo_angle = 90
 #minimum_pulse_width = 0.0005
 #maximum_pulse_width = 0.0024
 
-#[probe]
-#pin: ^PC14
-#x_offset: 0.0
-#y_offset: 25.0
-#z_offset: 1.85
-#speed: 5
-
 [probe]
-pin: ^PC14 #E0-Stop Connection on SKR mini E3 V2
+pin: ^PC15 #E0-Stop Connection on SKR mini E3 V2
 z_offset: 2.329 #Measure per your specific setup
 x_offset: -1
 y_offset: -28
