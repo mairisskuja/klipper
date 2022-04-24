@@ -133,7 +133,7 @@ It should report something similar to the following (example):
 10. Edit printer.cfg file the followinf way (set determined serial port, this is example only):
 
 `[mcu]
-serial: /dev/serial/by-path/platform-3f980000.usb-usb-0:1.2:1.0-port0`
+serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0`
 
 =======================================
 
