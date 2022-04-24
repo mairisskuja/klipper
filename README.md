@@ -122,5 +122,21 @@ Mac: Download or use any SFTP software of your choice. i.e. https://filezilla-pr
 `
 `You can check IF firmeare is actially flashed by removing SD card from printer and view it's contents via computer. If flash was successful file is renamed to 'firmware.cur'
 `
+9. It is necessary to determine the serial port connected to the MCU. For micro-controllers that connect via USB, run the following:
 
---- to be continued ----
+`ls /dev/serial/by-id/*`
+
+It should report something similar to the following (example):
+
+`/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0`
+
+10. Edit printer.cfg file the followinf way (set determined serial port, this is example only):
+
+`[mcu]
+serial: /dev/serial/by-path/platform-3f980000.usb-usb-0:1.2:1.0-port0`
+
+=======================================
+
+Save and Restart Klipper and in geneal you are good to go.
+
+=======================================
