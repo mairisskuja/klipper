@@ -13,7 +13,7 @@ Download latest version of FluidPi: https://github.com/fluidd-core/FluiddPI/rele
 
 * Choose Micro SD card with reasonable size as later you will use it not only as "disk" where your Klipper, Moonraker and Fluidd runs but as 'virtual CD card' as well replacing your SD card slot on Control Board.*
 
-`SD card minimum size can be 4Gb, 16 - 64Gb is recommened as you will later store print files on this card. Never cheap out on build parts, that includes quality SD card as well.`
+`SD card minimum size can be 4Gb, 16 - 64Gb is recommended as you will later store print files on this card. Never cheap out on build parts, that includes quality SD card as well.`
 
 * Format SD card to FAT.
 
