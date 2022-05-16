@@ -1,0 +1,419 @@
+#   Alpha config
+
+#   ————————————————————————————————————————————————
+#   Config includes
+#   ————————————————————————————————————————————————
+
+#[include screen_breakout.cfg]
+
+#   ————————————————————————————————————————————————
+#   Steppers
+#   ————————————————————————————————————————————————
+
+[stepper_x]
+##	Connected to X-MOT (B Motor)
+step_pin: PE11
+dir_pin: !PE10
+enable_pin: !PE9
+rotation_distance: 40
+microsteps: 16
+#full_steps_per_rotation:200  #set to 400 for 0.9 degree stepper
+endstop_pin: ^PB14
+position_min: -10
+position_endstop: 0
+position_max: 235
+homing_speed: 25   #Max 100
+homing_retract_dist: 5
+homing_positive_dir: false
+
+[tmc2209 stepper_x]
+uart_pin: PE7
+interpolate: True
+run_current: 0.7
+#hold_current: 0.4
+sense_resistor: 0.110
+stealthchop_threshold: 0
+
+[stepper_y]
+step_pin: PD8
+dir_pin: !PB12
+enable_pin: !PD9
+rotation_distance: 40
+microsteps: 128
+#full_steps_per_rotation:200  #set to 400 for 0.9 degree stepper
+endstop_pin: ^PB13
+
+position_endstop: -16
+position_max: 235
+position_min: -16
+homing_speed: 25
+homing_retract_dist: 5
+#homing_positive_dir: true
+
+[tmc2209 stepper_y]
+uart_pin: PE15
+interpolate: false
+run_current: 0.8
+sense_resistor: 0.110
+stealthchop_threshold: 0
+
+[stepper_z]
+step_pin: PD14
+dir_pin: PD13
+enable_pin: !PD15
+rotation_distance: 40
+gear_ratio: 80:16
+microsteps: 16
+##  In Z- Position
+endstop_pin: probe:z_virtual_endstop
+#endstop_pin: ^PA0
+##  Z-position of nozzle (in mm) to z-endstop trigger point relative to print surface (Z0)
+##  (+) value = endstop above Z0, (-) value = endstop below
+##	Increasing position_endstop brings nozzle closer to the bed
+##  After you run Z_ENDSTOP_CALIBRATE, position_endstop will be stored at the very end of your config
+
+#position_endstop: -5
+position_min: -4.9
+position_max: 235
+homing_speed: 5
+homing_retract_dist: 3
+
+
+[tmc2209 stepper_z]
+uart_pin: PC14
+#uart_pin: PD10
+#uart_address: 0
+interpolate: false
+run_current: 0.8
+sense_resistor: 0.110
+stealthchop_threshold: 0
+
+#   ————————————————————————————————————————————————
+#   Extruder
+#   ————————————————————————————————————————————————
+
+[extruder]
+step_pin: PD5
+dir_pin: PD6
+enable_pin: !PD4
+
+##	Update value below when you perform extruder calibration
+##	If you ask for 100mm of filament, but in reality it is 98mm:
+##	rotation_distance = <previous_rotation_distance> * <actual_extrude_distance> / 100
+##	Update Gear Ratio depending on your Extruder Type
+##	Use 50:17 for Afterburner/Clockwork (BMG Gear Ratio)
+##	Use 80:20 for M4, M3.1
+
+gear_ratio: 80:20 #M4
+microsteps: 16
+full_steps_per_rotation: 200	#200 for 1.8 degree, 400 for 0.9 degree
+rotation_distance = 21.75 #M4 bowden
+nozzle_diameter: 0.400
+filament_diameter: 1.750
+heater_pin: PB15
+sensor_type: PT1000 #Phaetus THERMISTOR CARTRIDGE PT1000 (RTD 450C)
+#sensor_type: ATC Semitec 104GT-2 # Validate the following thermistor type to make sure it is correct
+sensor_pin: PC0 # TE0 Position
+min_temp: 10
+max_temp: 270
+max_power: 1.0
+min_extrude_temp: 170
+#control = pid
+pressure_advance: 0.05 ##	Try to keep pressure_advance below 1.0
+##	Default is 0.040, leave stock
+pressure_advance_smooth_time: 0.040
+
+[tmc2209 extruder]
+uart_pin: PD7
+interpolate: false
+run_current: 0.5
+sense_resistor: 0.110
+stealthchop_threshold: 0
+
+[safe_z_home]
+home_xy_position: 1,1
+speed: 50
+z_hop: 10
+z_hop_speed: 10
+
+[force_move]
+enable_force_move: true
+
+#   ————————————————————————————————————————————————
+#   Mesh & Bed
+#   ————————————————————————————————————————————————
+
+[bed_mesh]
+speed: 120
+horizontal_move_z: 5
+mesh_min: 35,35
+mesh_max: 150,200
+#speed: 50
+probe_count: 3,3
+#relative_reference_index: 17
+#algorithm: bicubic
+#fade_start: 1
+#fade_end: 10
+#fade_target: 0
+
+[heater_bed]
+##	SSR Pin - In BED OUT position
+heater_pin: PB4
+sensor_type: ATC Semitec 104GT-2
+sensor_pin: PB0 # Spider v1.x TB Position; #sensor_pin: PB0 # Spider v2.x TB Position
+max_power: 0.6 ##	Adjust Max Power so your heater doesn't warp your bed
+min_temp: 0
+max_temp: 120
+#control: pid
+#pid_kp: 58.437
+#pid_ki: 2.347
+#pid_kd: 363.769
+
+#   ————————————————————————————————————————————————
+#   Probe
+#   ————————————————————————————————————————————————
+
+#   ————————————————————————————————————————————————
+#   Force move section for gantry movement diags
+#   ————————————————————————————————————————————————
+
+#[force_move] - enabled on stepper configuration tests only
+#enable_force_move: true
+
+#   ————————————————————————————————————————————————
+#    Probe & Bed mesh
+#   ————————————————————————————————————————————————
+
+#[homing_override]
+#axes: z
+#set_position_z: 0
+#gcode:
+#    G90
+#    G0 Z5 F500
+#    G28 X0 Y0
+#    G0 X117.5 Y117.5 F9000
+#    G28 Z0
+#    G0 Z30 F500
+
+[probe]
+pin: ^PA0 #Spider V2
+z_offset = 5
+x_offset: -25
+y_offset: -20
+speed: 10
+samples: 2
+samples_tolerance_retries: 2
+samples_result: median
+
+[bed_mesh]
+speed: 100
+horizontal_move_z: 5
+mesh_min: 35,35
+mesh_max: 200,200
+probe_count: 6
+algorithm: bicubic
+fade_start: 1
+fade_end: 10
+fade_target: 0
+
+
+#   ————————————————————————————————————————————————
+#   Fans
+#   ————————————————————————————————————————————————
+
+[heater_fan hotend_fan]
+##	Hotend Fan - FAN0 Connector
+pin: PA13 #pin: PA13 # Spider v2.x
+max_power: 1.0
+kick_start_time: 0.5
+heater: extruder
+heater_temp: 50.0
+##	If you are experiencing back flow, you can reduce fan_speed
+#fan_speed: 1.0
+
+[fan]
+##	Print Cooling Fan - FAN1 Connector
+pin: PA14 #pin: PA14 # Spider v2.x
+max_power: 0.4
+kick_start_time: 0.5
+##	Depending on your fan, you may need to increase this value
+##	if your fan will not start. Can change cycle_time (increase)
+##	if your fan is not able to slow down effectively
+off_below: 0.10
+
+#   ————————————————————————————————————————————————
+#   MCU
+#   ————————————————————————————————————————————————
+
+[mcu]
+serial: /dev/serial/by-id/usb-Klipper_stm32f446xx_26005A001051383039343538-if00
+
+#   ————————————————————————————————————————————————
+#   Display
+#   ————————————————————————————————————————————————
+
+[display]
+#	mini12864 LCD Display
+lcd_type: uc1701
+cs_pin: PC11
+a0_pin: PD2
+rst_pin: PC10
+encoder_pins: ^PC6,^PC7
+click_pin: ^!PA8
+contrast: 63
+#spi_bus: spi1
+spi_software_mosi_pin: PA7
+spi_software_miso_pin: PA6
+spi_software_sclk_pin: PA5
+
+[neopixel fysetc_mini12864]
+#	To control Neopixel RGB in mini12864 display
+pin: PC12
+chain_count: 3
+initial_RED: 0.1
+initial_GREEN: 0.5
+initial_BLUE: 0.0
+color_order: RGB
+
+#	Set RGB values on boot up for each Neopixel. 
+#	Index 1 = display, Index 2 and 3 = Knob
+[delayed_gcode setdisplayneopixel]
+initial_duration: 1
+gcode:
+        SET_LED LED=fysetc_mini12864 RED=1 GREEN=1 BLUE=1 INDEX=1 TRANSMIT=0
+        SET_LED LED=fysetc_mini12864 RED=1 GREEN=0 BLUE=0 INDEX=2 TRANSMIT=0
+        SET_LED LED=fysetc_mini12864 RED=1 GREEN=0 BLUE=0 INDEX=3 
+
+#   ————————————————————————————————————————————————
+#   Printer
+#   ————————————————————————————————————————————————
+
+[printer]
+kinematics: cartesian
+max_velocity: 300
+max_accel: 3000
+max_z_velocity: 5
+max_z_accel: 100
+
+[static_digital_output usb_pullup_enable]
+pins: !PC13
+
+[display_status]
+
+[gcode_macro G29]
+gcode:
+    BED_MESH_CLEAR
+    BED_MESH_CALIBRATE
+    BED_MESH_PROFILE SAVE=default
+    BED_MESH_PROFILE LOAD=default
+
+[virtual_sdcard]
+path: ~/gcode_files
+
+[pause_resume]
+
+[gcode_macro PAUSE]
+description: Pause the actual running print
+rename_existing: PAUSE_BASE
+# change this if you need more or less extrusion
+variable_extrude: 1.0
+gcode:
+  ##### read E from pause macro #####
+  {% set E = printer["gcode_macro PAUSE"].extrude|float %}
+  ##### set park positon for x and y #####
+  # default is your max posion from your printer.cfg
+  {% set x_park = printer.toolhead.axis_maximum.x|float - 5.0 %}
+  {% set y_park = printer.toolhead.axis_maximum.y|float - 5.0 %}
+  ##### calculate save lift position #####
+  {% set max_z = printer.toolhead.axis_maximum.z|float %}
+  {% set act_z = printer.toolhead.position.z|float %}
+  {% if act_z < (max_z - 2.0) %}
+      {% set z_safe = 2.0 %}
+  {% else %}
+      {% set z_safe = max_z - act_z %}
+  {% endif %}
+  ##### end of definitions #####
+  PAUSE_BASE
+  G91
+  {% if printer.extruder.can_extrude|lower == 'true' %}
+    G1 E-{E} F2100
+  {% else %}
+    {action_respond_info("Extruder not hot enough")}
+  {% endif %}
+  {% if "xyz" in printer.toolhead.homed_axes %}
+    G1 Z{z_safe} F900
+    G90
+    G1 X{x_park} Y{y_park} F6000
+  {% else %}
+    {action_respond_info("Printer not homed")}
+  {% endif %}
+
+[gcode_macro RESUME]
+description: Resume the actual running print
+rename_existing: RESUME_BASE
+gcode:
+  ##### read E from pause macro #####
+  {% set E = printer["gcode_macro PAUSE"].extrude|float %}
+  #### get VELOCITY parameter if specified ####
+  {% if 'VELOCITY' in params|upper %}
+    {% set get_params = ('VELOCITY=' + params.VELOCITY)  %}
+  {%else %}
+    {% set get_params = "" %}
+  {% endif %}
+  ##### end of definitions #####
+  {% if printer.extruder.can_extrude|lower == 'true' %}
+    G91
+    G1 E{E} F2100
+  {% else %}
+    {action_respond_info("Extruder not hot enough")}
+  {% endif %}
+  RESUME_BASE {get_params}
+
+[gcode_macro CANCEL_PRINT]
+description: Cancel the actual running print
+rename_existing: CANCEL_PRINT_BASE
+gcode:
+  TURN_OFF_HEATERS
+  CANCEL_PRINT_BASE
+
+[temperature_sensor raspberry_pi]
+sensor_type: temperature_host
+min_temp: 10
+max_temp: 100
+
+[temperature_sensor mcu_temp]
+sensor_type: temperature_mcu
+min_temp: 0
+max_temp: 100
+
+#*# <---------------------- SAVE_CONFIG ---------------------->
+#*# DO NOT EDIT THIS BLOCK OR BELOW. The contents are auto-generated.
+#*#
+#*# [heater_bed]
+#*# pid_kp = 45.125
+#*# pid_ki = 0.716
+#*# pid_kd = 710.720
+#*# control = pid
+#*#
+#*# [extruder]
+#*# pid_kp = 23.383
+#*# pid_ki = 1.332
+#*# pid_kd = 102.591
+#*# control = pid
+#*#
+#*# [bed_mesh default]
+#*# version = 1
+#*# points =
+#*# 	-0.057188, -0.040000, -0.061250
+#*# 	-0.045625, -0.031563, -0.060938
+#*# 	-0.004063, 0.004375, 0.000625
+#*# tension = 0.2
+#*# min_x = 35.0
+#*# algo = lagrange
+#*# y_count = 3
+#*# mesh_y_pps = 2
+#*# min_y = 35.0
+#*# x_count = 3
+#*# max_y = 200.0
+#*# mesh_x_pps = 2
+#*# max_x = 150.0
