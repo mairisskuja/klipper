@@ -91,7 +91,8 @@ If all is ok you should see Klipper Firmware Configuration UI which looks like t
  
 * This part is tricky one and is not device afnostic. The configuration below is for BTT SKR E3 V1.2 and 2.0.
   * Set **STM32F103** with a **28KiB bootloader** and **USB communication**.
-  * Also,select **Enable extra low-level configuration options**" and configure **GPIO pins to set at micro-controller startup** to **!PC13**.
+  * Set **Enable extra low-level configuration options**" and;
+  * Configure **GPIO pins to set at micro-controller startup** to **!PA14**.
 
 * Once configured, run:
 
