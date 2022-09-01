@@ -71,7 +71,7 @@ login using password you set in step 4.`
 
 To compile the micro-controller code, start by running these commands on the Raspberry Pi:
 
-`~/cd/klipper
+`cd /home/pi/klipper
 make menuconfig
 `
 
